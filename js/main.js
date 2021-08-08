@@ -60,6 +60,22 @@ const app = new Vue({
     },
   },
 
+  computed: {
+
+    totalPrice() {
+      let total = [];
+      for(let item of this.cartItems) {
+        total.push(item.price * item.quantity);
+      };
+      console.log(this.cartItems);
+      return total.reduce((summ, item) => summ += item, 0);
+    },
+
+    cartQuantity() {
+      return this.cartItems.reduce((summ, item) => summ += item.quantity, 0);
+    }
+  },
+
   created(){
 
   },
